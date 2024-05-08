@@ -1,14 +1,21 @@
 const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv/config");
+
 const app = express();
-const port = 3000; // You can change the port number if needed
-// Route handler for the /hello endpoint
 
-app.get("/hello", (req, res) => {
-  res.send("Hello, World!");
-});
+// const dboptions = { useNewUrlParser: true, useUnifiedTopology: true };
+const port = process.env.PORT || 4000;
+// mongoose.connect(process.env.DB_URI, dboptions);
 
-// Start the server
+// then(() => console.log("Database connected :")).catch((err) =>
+//   console.log(err)
+// );
 
-app.listen(5000, () => {
+// app.get("/hello", (req, res) => {
+//   res.send("Hello, World!");
+// });
+
+app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
